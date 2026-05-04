@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PowerAI - Uncensored Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">PowerAI</span>
+        </div>
+        <button class="new-chat-btn" id="newChatBtn">+ New Chat</button>
+      </div>
+
+      <div class="chat-history" id="chatHistory">
+        <p class="history-label">Recent Chats</p>
+        <!-- chat history items will be injected here -->
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="model-selector">
+          <label for="modelSelect">AI Model:</label>
+          <select id="modelSelect">
+            <option value="openai/gpt-4o-mini">GPT-4o Mini (Free)</option>
+            <option value="meta-llama/llama-3.3-70b-instruct:free">Llama 3.3 70B (Free)</option>
+            <option value="deepseek/deepseek-r1:free">DeepSeek R1 (Free)</option>
+            <option value="google/gemini-2.0-flash-exp:free">Gemini 2.0 Flash (Free)</option>
+            <option value="mistralai/mistral-7b-instruct:free">Mistral 7B (Free)</option>
+            <option value="qwen/qwen3-235b-a22b:free">Qwen3 235B (Free)</option>
+          </select>
+        </div>
+        <div class="api-key-section">
+          <label for="apiKeyInput">OpenRouter API Key:</label>
+          <input type="password" id="apiKeyInput" placeholder="sk-or-v1-..." />
+          <a href="https://openrouter.ai/keys" target="_blank" class="get-key-link">Get Free Key →</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main class="main-area">
+
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <button class="toggle-sidebar-btn" id="toggleSidebar">☰</button>
+        <h1 class="chat-title" id="chatTitle">PowerAI — Uncensored Assistant</h1>
+        <button class="clear-btn" id="clearBtn" title="Clear Chat">🗑</button>
+      </header>
+
+      <!-- Messages -->
+      <div class="messages-container" id="messagesContainer">
+        <div class="welcome-screen" id="welcomeScreen">
+          <div class="welcome-icon">⚡</div>
+          <h2>PowerAI — Your Unrestricted Assistant</h2>
+          <p>Koi bhi kaam, koi bhi sawal — bilkul seedha jawab.</p>
+          <div class="suggestion-chips">
+            <button class="chip" onclick="useChip(this)">Code likh mere liye</button>
+            <button class="chip" onclick="useChip(this)">Story likhne mein help karo</button>
+            <button class="chip" onclick="useChip(this)">Koi bhi script banao</button>
+            <button class="chip" onclick="useChip(this)">Step-by-step guide do</button>
+          </div>
+        </div>
+        <div id="messagesList"></div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-area">
+        <div class="input-wrapper">
+          <textarea
+            id="userInput"
+            placeholder="Apna kaam ya sawal yahan likho..."
+            rows="1"
+            maxlength="10000"
+          ></textarea>
+          <button class="send-btn" id="sendBtn" title="Send">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+        <p class="disclaimer">PowerAI uses OpenRouter free models. Responses are AI-generated.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
